@@ -39,7 +39,7 @@
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* INTRO SPLASH ANIMADA */
+        /* INTRO ANIMADA */
         #intro {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
@@ -47,7 +47,6 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 2000;
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
-            will-change: transform;
             overflow: hidden;
             cursor: pointer;
         }
@@ -55,9 +54,9 @@
         .intro-content {
             text-align: center;
             padding: 20px;
-            position: relative;
-            z-index: 2;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
+        .intro-content.fade-out { opacity: 0; transform: scale(0.9); }
         .intro-title {
             font-family: var(--font-display);
             font-size: clamp(3rem, 10vw, 7rem);
@@ -66,7 +65,6 @@
             text-transform: uppercase;
             margin-bottom: 20px;
             color: #fff;
-            transition: all 0.5s ease;
         }
         .intro-title .orange {
             color: var(--accent);
@@ -80,77 +78,64 @@
             text-transform: uppercase;
             color: var(--text-secondary);
             margin-bottom: 40px;
-            font-weight: 500;
-            transition: all 0.3s ease;
         }
-        .intro-arrow {
-            font-size: 3rem;
-            color: var(--accent);
-            animation: bounceDown 1.5s infinite;
-            cursor: pointer;
-            display: inline-block;
-        }
-        .intro-text {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        .intro-arrow { font-size: 3rem; color: var(--accent); animation: bounceDown 1.5s infinite; }
+        .intro-text { margin-top: 10px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
         @keyframes bounceDown { 0%,100% { transform: translateY(0); opacity: 0.7; } 50% { transform: translateY(15px); opacity: 1; } }
 
-        /* Elementos para la animación del auto */
+        /* Auto y estela */
         .intro-car {
             position: absolute;
-            left: -200px;
+            left: -150px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 100px;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255,107,0,0.8);
+            font-size: 80px;
             z-index: 3;
-            opacity: 0;
-            transition: all 0.1s;
             pointer-events: none;
+            opacity: 0;
         }
-        .intro-car.active {
-            animation: carDrive 0.7s forwards ease-in;
-        }
+        .intro-car.active { animation: carDrive 0.8s forwards ease-in; }
         @keyframes carDrive {
-            0% { left: -200px; opacity: 1; }
-            100% { left: 110%; opacity: 0; }
+            0% { left: -150px; opacity: 1; }
+            100% { left: 110%; opacity: 1; }
         }
-        .intro-title-trail {
+        .intro-trail {
             position: absolute;
-            left: 0;
+            left: -100%;
             top: 50%;
             transform: translateY(-50%);
             font-family: var(--font-display);
             font-size: clamp(4rem, 12vw, 8rem);
             letter-spacing: 5px;
-            color: transparent;
-            -webkit-text-stroke: 2px var(--accent);
-            text-shadow: 0 0 30px rgba(255,107,0,0.7);
+            color: var(--accent);
+            text-shadow: 0 0 30px rgba(255,107,0,0.8);
             white-space: nowrap;
             z-index: 2;
             pointer-events: none;
             opacity: 0;
         }
-        .intro-title-trail.active {
-            animation: trailMove 0.7s forwards ease-in;
-        }
+        .intro-trail.active { animation: trailMove 0.8s forwards ease-in; }
         @keyframes trailMove {
             0% { left: -100%; opacity: 1; }
             100% { left: 100%; opacity: 0; }
         }
-
-        /* Ocultar contenido original durante la animación */
-        .intro-content.fade-out {
+        .intro-click-text {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
             opacity: 0;
-            transform: scale(0.9);
+            z-index: 4;
+            pointer-events: none;
         }
+        .intro-click-text.show { opacity: 1; }
 
-        /* ===== CONTENIDO GENERAL ===== */
+        /* CONTENIDO GENERAL (se mantiene igual) */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .section-padding { padding: 100px 0; }
         .section-tag { display: inline-block; font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
@@ -189,7 +174,6 @@
         .hero-stat-number { font-family: var(--font-display); font-size: 2.5rem; color: var(--accent); }
         .hero-stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* CARRUSEL ABOUT */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .carousel-container { position: relative; width: 100%; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-card); }
         .carousel-image { width: 100%; height: 450px; object-fit: cover; display: block; cursor: pointer; }
@@ -237,7 +221,6 @@
         .footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; }
         .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .about-grid, .booking-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .carousel-image { height: 350px; }
@@ -265,7 +248,8 @@
             .intro-services { font-size: 0.8rem; letter-spacing: 2px; }
             .intro-arrow { font-size: 2rem; }
             .intro-car { font-size: 60px; }
-            .intro-title-trail { font-size: 3rem; }
+            .intro-trail { font-size: 3rem; }
+            .intro-click-text { font-size: 1.2rem; }
         }
         @media (max-width: 480px) {
             .container { padding: 0 16px; }
@@ -287,11 +271,12 @@
             <h1 class="intro-title">ROSCONI<br><span class="orange">GARAGE</span></h1>
             <p class="intro-services">Mecánica Integral · Lubricentro · Reprogramación Electrónica</p>
             <div class="intro-arrow"><i class="fas fa-chevron-down"></i></div>
-            <div class="intro-text">Hacé clic para continuar</div>
+            <div class="intro-text">Hacé click para continuar</div>
         </div>
-        <!-- Auto y estela animados -->
-        <div class="intro-car" id="introCar"><i class="fas fa-car-side"></i></div>
-        <div class="intro-title-trail" id="introTrail">ROSCONI GARAGE</div>
+        <!-- Auto (emoji) y estela -->
+        <div class="intro-car" id="introCar">🚗💨</div>
+        <div class="intro-trail" id="introTrail">ROSCONI GARAGE</div>
+        <div class="intro-click-text" id="introClickText">Hacé click para continuar</div>
     </div>
 
     <!-- NAVBAR -->
@@ -454,37 +439,48 @@
     <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // ===== INTRO ANIMADA =====
+        // INTRO ANIMADA
         const intro = document.getElementById('intro');
         const introContent = document.getElementById('introContent');
         const introCar = document.getElementById('introCar');
         const introTrail = document.getElementById('introTrail');
+        const introClickText = document.getElementById('introClickText');
         let introHidden = false;
 
         function animateIntro() {
             if (introHidden) return;
             introHidden = true;
 
+            // Ocultar contenido original
+            introContent.classList.add('fade-out');
+
             // Mostrar auto y estela
             introCar.classList.add('active');
             introTrail.classList.add('active');
-            introContent.classList.add('fade-out');
 
-            // Después de la animación, ocultar intro
+            // Mostrar texto "Hacé click para continuar" después de la animación
+            setTimeout(() => {
+                introClickText.classList.add('show');
+            }, 800);
+
+            // Ocultar intro después de 2 segundos
             setTimeout(() => {
                 intro.classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 750);
+            }, 2000);
         }
 
-        // También ocultar con scroll, teclado o clic en flecha
+        // Al hacer clic en cualquier parte de la intro se dispara la animación
+        intro.addEventListener('click', animateIntro);
+
+        // También con scroll, teclado o touch
         window.addEventListener('wheel', () => { if (!introHidden) animateIntro(); }, { passive: true });
         window.addEventListener('touchmove', () => { if (!introHidden) animateIntro(); }, { passive: true });
         window.addEventListener('keydown', (e) => {
             if ((e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') && !introHidden) animateIntro();
         });
 
-        // Al cargar, bloquear scroll
+        // Bloquear scroll al cargar
         document.body.style.overflow = 'hidden';
         window.addEventListener('load', () => {
             intro.classList.remove('hidden');
@@ -492,7 +488,7 @@
             document.body.style.overflow = 'hidden';
         });
 
-        // ===== CARRUSEL ABOUT =====
+        // CARRUSEL ABOUT
         const images = [
             'https://i.imgur.com/ZRL3vMu.jpg',
             'https://i.imgur.com/Mq3IuMP.jpg',
@@ -514,7 +510,6 @@
         ];
         let currentIndex = 0;
         const carouselImage = document.getElementById('carouselImage');
-
         function changeImage(direction) {
             currentIndex += direction;
             if (currentIndex < 0) currentIndex = images.length - 1;
@@ -527,13 +522,13 @@
             carouselImage.src = images[currentIndex];
         }
 
-        // ===== NAVBAR =====
+        // NAVBAR
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // ===== MOBILE MENU =====
+        // MOBILE MENU
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const navOverlay = document.getElementById('navOverlay');
@@ -555,7 +550,7 @@
             });
         });
 
-        // ===== BOOKING SUBMIT =====
+        // BOOKING SUBMIT
         function submitBooking() {
             const nombre = document.getElementById('nombre').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
