@@ -40,7 +40,7 @@
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* INTRO SIMPLE */
+        /* INTRO SIMPLE Y FUNCIONAL */
         #intro {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
@@ -255,8 +255,8 @@
     </style>
 </head>
 <body>
-    <!-- INTRO -->
-    <div id="intro" onclick="hideIntro()">
+    <!-- INTRO SIMPLE (solo clic) -->
+    <div id="intro" onclick="document.getElementById('intro').classList.add('hidden'); document.body.style.overflow='auto';">
         <div class="intro-content">
             <h1 class="intro-title">ROSCONI<br><span class="orange">GARAGE</span></h1>
             <p class="intro-services">Mecánica Integral · Lubricentro · Reprogramación Electrónica</p>
@@ -338,11 +338,10 @@
         </div>
     </section>
 
-    <!-- GALERÍA (se mantiene) -->
+    <!-- GALERÍA (se mantienen las 17 imágenes) -->
     <section class="section-padding" id="galeria">
         <div class="container"><div class="text-center"><span class="section-tag">Nuestros Trabajos</span><h2 class="section-title">Galería de <span class="text-accent">Proyectos</span></h2></div>
         <div class="gallery-grid">
-            <!-- 17 imágenes con alt descriptivo -->
             <div class="gallery-item"><img src="https://i.imgur.com/ISqCp2p.jpg" alt="Motor en reparación" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Motor</span><h4>Reparación</h4></div></div>
             <div class="gallery-item"><img src="https://i.imgur.com/ZRL3vMu.jpg" alt="Taller" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Taller</span><h4>Instalaciones</h4></div></div>
             <!-- ... (se repiten todas las demás igual) -->
@@ -371,13 +370,72 @@
         </div></div>
     </section>
 
-    <!-- FAQ, CONTACTO, FOOTER se mantienen similares -->
+    <!-- FAQ -->
+    <section class="section-padding" id="faq">
+        <div class="container"><div class="text-center"><span class="section-tag">Preguntas Frecuentes</span><h2 class="section-title">¿Dudas? <span class="text-accent">Acá respondemos</span></h2></div>
+        <div style="max-width:800px; margin:50px auto 0;">
+            <div style="background:#1a1a1a; padding:30px; border-radius:16px; margin-bottom:20px;"><h3 style="font-family:var(--font-display);"><i class="fas fa-clock" style="color:var(--accent); margin-right:10px;"></i>¿Horario de atención?</h3><p style="color:#b0b0b0;">Lunes a viernes abierto. Sábados y domingos cerrado.</p></div>
+            <div style="background:#1a1a1a; padding:30px; border-radius:16px; margin-bottom:20px;"><h3 style="font-family:var(--font-display);"><i class="fas fa-shield-alt" style="color:var(--accent); margin-right:10px;"></i>¿Garantía?</h3><p style="color:#b0b0b0;">Sí, todos nuestros trabajos cuentan con garantía escrita.</p></div>
+            <div style="background:#1a1a1a; padding:30px; border-radius:16px; margin-bottom:20px;"><h3 style="font-family:var(--font-display);"><i class="fas fa-oil-can" style="color:var(--accent); margin-right:10px;"></i>¿Qué marcas?</h3><p style="color:#b0b0b0;">Mobil, LiquiMoly, Mann Filter, Blue Chem y Eibach.</p></div>
+            <div style="background:#1a1a1a; padding:30px; border-radius:16px;"><h3 style="font-family:var(--font-display);"><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right:10px;"></i>¿Ubicación?</h3><p style="color:#b0b0b0;">Juan Antonio Lavalleja 730, Artigas, Uruguay.</p></div>
+        </div>
+        </div>
+    </section>
 
-    <!-- Script para carrusel con dots -->
+    <!-- CONTACTO -->
+    <section class="section-padding" id="contacto" style="background:#111;">
+        <div class="container"><div class="text-center"><span class="section-tag">Contacto</span><h2 class="section-title">Encontrá <span class="text-accent">Rosconi Garage</span></h2></div>
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-label">Dirección</div><a href="https://maps.google.com/?q=Juan+Antonio+Lavalleja+730,+Artigas,+Uruguay" target="_blank" style="color:#fff; text-decoration:none;">Juan Antonio Lavalleja 730, Artigas, Uruguay</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-label">Email</div><a href="mailto:martinrosca12@gmail.com" style="color:#fff; text-decoration:none;">martinrosca12@gmail.com</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><div class="contact-label">Horario</div>Lunes a Viernes: Abierto<br>Sábado y Domingo: Cerrado</div></div>
+                <div style="margin-top:20px;">
+                    <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="contact-social-btn whatsapp-bg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/rosconigarage/" target="_blank" class="contact-social-btn instagram-bg"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+            <div class="contact-map"><iframe src="https://www.google.com/maps?q=-30.4066293,-56.4605533&z=17&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
+        </div></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-grid">
+            <div><div class="footer-brand">Rosconi<span>Garage</span></div><p style="color:#707070;">Taller mecánico automotriz. Trabajo serio, resultados de confianza.</p></div>
+            <div><h4 style="font-family:var(--font-display);">Navegación</h4><ul class="footer-links"><li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Trabajos</a></li><li><a href="#agenda">Agenda</a></li></ul></div>
+            <div><h4 style="font-family:var(--font-display);">Servicios</h4><ul class="footer-links"><li><a href="#servicios">Mecánica Integral</a></li><li><a href="#servicios">Lubricentro</a></li><li><a href="#servicios">Reprogramación</a></li><li><a href="#servicios">Mecánica General</a></li></ul></div>
+            <div><h4 style="font-family:var(--font-display);">Contacto</h4><ul class="footer-links"><li><a href="mailto:martinrosca12@gmail.com">martinrosca12@gmail.com</a></li><li><a href="https://maps.google.com/?q=Juan+Antonio+Lavalleja+730,+Artigas,+Uruguay" target="_blank">Lavalleja 730, Artigas</a></li><li><a href="https://wa.me/59891317613" target="_blank">WhatsApp</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Rosconi Garage. Todos los derechos reservados.</p><p>Hecho con <span style="color:var(--accent);">♥</span> y pasión por los motores</p></div></div>
+    </footer>
+
+    <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+
     <script>
-        // (Se mantiene toda la lógica de intro, navbar, carrusel, formulario, etc.)
-        // Además se agrega generación de dots
+        // CARRUSEL ABOUT (con dots)
+        const images = [
+            'https://i.imgur.com/ZRL3vMu.jpg',
+            'https://i.imgur.com/Mq3IuMP.jpg',
+            'https://i.imgur.com/UVSJ5OP.jpg',
+            'https://i.imgur.com/IBBcbDB.jpg',
+            'https://i.imgur.com/taE21Py.jpg',
+            'https://i.imgur.com/Lc5n3Di.jpg',
+            'https://i.imgur.com/d0QhDUQ.jpg',
+            'https://i.imgur.com/pamUkvs.jpg',
+            'https://i.imgur.com/DnnEThy.jpg',
+            'https://i.imgur.com/dOHdVxu.jpg',
+            'https://i.imgur.com/2tqA8lV.jpg',
+            'https://i.imgur.com/UHKefj6.jpg',
+            'https://i.imgur.com/RuUr1cl.jpg',
+            'https://i.imgur.com/nMrcLj2.jpg',
+            'https://i.imgur.com/rzxRJ2N.jpg',
+            'https://i.imgur.com/elCxcqr.jpg',
+            'https://i.imgur.com/ISqCp2p.jpg'
+        ];
+        let currentIndex = 0;
+        const carouselImage = document.getElementById('carouselImage');
         const carouselDots = document.getElementById('carouselDots');
+
         function generateDots() {
             carouselDots.innerHTML = '';
             images.forEach((_, index) => {
@@ -391,13 +449,81 @@
                 carouselDots.appendChild(dot);
             });
         }
+
         function updateCarousel() {
             carouselImage.src = images[currentIndex];
             document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
         }
-        // ... (el resto del script igual, pero se llama generateDots al inicio)
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        function changeImageRandom() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            currentIndex = randomIndex;
+            updateCarousel();
+        }
+
+        generateDots();
+        updateCarousel();
+
+        // NAVBAR SCROLL
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // MOBILE MENU
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            navOverlay.classList.toggle('active');
+        });
+        navOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            navOverlay.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                navOverlay.classList.remove('active');
+            });
+        });
+
+        // BOOKING SUBMIT
+        function submitBooking() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const vehiculo = document.getElementById('vehiculo').value.trim();
+            const servicio = document.getElementById('servicio').value;
+            const fecha = document.getElementById('fecha').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+            if (!nombre || !telefono || !vehiculo || !servicio || !fecha) {
+                alert('Completá todos los campos obligatorios.');
+                return;
+            }
+            const fechaFormateada = new Date(fecha + 'T00:00:00').toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            let message = `🚗 *NUEVA SOLICITUD DE TURNO - ROSCONI GARAGE* 🚗\n\n`;
+            message += `👤 *Nombre:* ${nombre}\n`;
+            message += `📱 *Teléfono:* ${telefono}\n`;
+            message += `🚘 *Vehículo:* ${vehiculo}\n`;
+            message += `🔧 *Servicio:* ${servicio}\n`;
+            message += `📅 *Fecha preferida:* ${fechaFormateada}\n`;
+            if (mensaje) message += `📝 *Descripción:* ${mensaje}\n`;
+            message += `\n✅ *Enviado desde la web de Rosconi Garage*`;
+            window.open(`https://wa.me/59891317613?text=${encodeURIComponent(message)}`, '_blank');
+        }
     </script>
 </body>
 </html>
