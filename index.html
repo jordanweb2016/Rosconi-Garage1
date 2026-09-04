@@ -396,7 +396,7 @@
     <!-- AGENDA -->
     <section class="section-padding" id="agenda" style="background: linear-gradient(180deg, #0a0a0a, #111);">
         <div class="container"><div class="booking-grid">
-            <div><span class="section-tag">Agenda Tu Turno</span><h2 class="section-title">Reservá tu <span class="text-accent">servicio</span></h2><p class="section-subtitle">Completá el formulario y te contactaremos por WhatsApp para confirmar disponibilidad.</p></div>
+            <div><span class="section-tag">Agenda Tu Turno</span><h2 class="section-title">Reservá tu <span class="text-accent">servicio</span></h2><p class="section-subtitle">Completá el formulario y te contactaremos por WhatsApp para confirmar disponibilidad. Se requiere mínimo 24 horas de anticipación.</p></div>
             <div class="booking-form-card">
                 <form onsubmit="event.preventDefault(); submitBooking();">
                     <div class="form-row">
@@ -491,6 +491,7 @@
     <a href="https://www.google.com/maps/dir/?api=1&destination=-30.4066293,-56.4605533" target="_blank" class="floating-map" aria-label="Cómo llegar"><i class="fas fa-map-marker-alt"></i></a>
 
     <script>
+        // Sonido sutil de click
         function playClickSound() {
             try {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -526,8 +527,18 @@
                 }
             });
             document.body.style.overflow = 'hidden';
+
+            // Establecer fecha mínima (mañana) en el campo de fecha
+            const fechaInput = document.getElementById('fecha');
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const year = tomorrow.getFullYear();
+            const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const day = String(tomorrow.getDate()).padStart(2, '0');
+            fechaInput.min = `${year}-${month}-${day}`;
         });
 
+        // CARRUSEL
         const images = [
             'https://i.imgur.com/ZRL3vMu.jpg',
             'https://i.imgur.com/Mq3IuMP.jpg',
@@ -588,11 +599,13 @@
         generateDots();
         updateCarousel();
 
+        // NAVBAR SCROLL
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
+        // MOBILE MENU
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const navOverlay = document.getElementById('navOverlay');
@@ -614,6 +627,7 @@
             });
         });
 
+        // BOOKING SUBMIT
         function submitBooking() {
             const nombre = document.getElementById('nombre').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
@@ -621,11 +635,24 @@
             const servicio = document.getElementById('servicio').value;
             const fecha = document.getElementById('fecha').value;
             const mensaje = document.getElementById('mensaje').value.trim();
+
+            // Validación de fecha mínima (24h)
+            const fechaInput = document.getElementById('fecha');
+            const selectedDate = new Date(fecha + 'T00:00:00');
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0,0,0,0);
+            if (selectedDate < tomorrow) {
+                alert('La fecha debe ser al menos con 24 horas de anticipación.');
+                return;
+            }
+
             if (!nombre || !telefono || !vehiculo || !servicio || !fecha) {
                 alert('Completá todos los campos obligatorios.');
                 return;
             }
-            const fechaFormateada = new Date(fecha + 'T00:00:00').toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+            const fechaFormateada = selectedDate.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
             let message = `🚗 *NUEVA SOLICITUD DE TURNO - ROSCONI GARAGE* 🚗\n\n`;
             message += `👤 *Nombre:* ${nombre}\n`;
             message += `📱 *Teléfono:* ${telefono}\n`;
