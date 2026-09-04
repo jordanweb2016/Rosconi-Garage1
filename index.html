@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosconi Garage | Taller Mecánico Automotriz en Artigas</title>
-    <meta name="description" content="Rosconi Garage: taller mecánico automotriz en Artigas, Uruguay. Mecánica integral, lubricentro y reprogramación electrónica. Agenda tu turno por WhatsApp.">
+    <title>Rosconi Garage | Taller Mecánico Automotriz</title>
+    <meta name="description" content="Taller mecánico en Artigas, Uruguay. Mecánica general, integral, lubricentro y reprogramación electrónica. Agenda por WhatsApp.">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -40,7 +40,7 @@
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* INTRO SIMPLE Y FUNCIONAL */
+        /* INTRO */
         #intro {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
@@ -97,7 +97,7 @@
         .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
         .hamburger span { display: block; width: 28px; height: 3px; background: #fff; margin: 5px 0; border-radius: 3px; transition: var(--transition); }
 
-        /* HERO MEJORADO */
+        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -172,7 +172,7 @@
         .about-feature { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg-card); border-radius: var(--border-radius-sm); border: 1px solid var(--border); }
         .about-feature-icon { width: 40px; height: 40px; background: rgba(255,107,0,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
 
-        /* SERVICIOS, GALERÍA, AGENDA, CONTACTO (se mantienen) */
+        /* SERVICIOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
         .service-card { background: var(--bg-card); border-radius: var(--border-radius); padding: 36px 28px; border: 1px solid var(--border); transition: var(--transition); }
         .service-card:hover { border-color: rgba(255,107,0,0.4); transform: translateY(-6px); }
@@ -209,8 +209,9 @@
         .footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
         .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
         .floating-whatsapp:hover { transform: scale(1.1); }
+        .floating-map { position: fixed; bottom: 100px; right: 30px; z-index: 999; width: 56px; height: 56px; background: #4285F4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; box-shadow: 0 8px 30px rgba(66,133,244,0.4); }
+        .floating-map:hover { transform: scale(1.1); }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .about-grid, .booking-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .carousel-image { height: 350px; }
@@ -230,6 +231,7 @@
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .floating-whatsapp { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 1.3rem; }
+            .floating-map { bottom: 80px; right: 20px; width: 48px; height: 48px; font-size: 1.3rem; }
             .about-features { grid-template-columns: 1fr; }
             .contact-map iframe { height: 300px; }
             .carousel-image { height: 280px; }
@@ -255,11 +257,11 @@
     </style>
 </head>
 <body>
-    <!-- INTRO SIMPLE (solo clic) -->
-    <div id="intro" onclick="document.getElementById('intro').classList.add('hidden'); document.body.style.overflow='auto';">
+    <!-- INTRO -->
+    <div id="intro">
         <div class="intro-content">
             <h1 class="intro-title">ROSCONI<br><span class="orange">GARAGE</span></h1>
-            <p class="intro-services">Mecánica Integral · Lubricentro · Reprogramación Electrónica</p>
+            <p class="intro-services">Mecánica General · Integral · Service Completo · Lubricentro</p>
             <div class="intro-arrow"><i class="fas fa-chevron-down"></i></div>
             <div class="intro-text">Hacé click para continuar</div>
         </div>
@@ -283,12 +285,12 @@
     </nav>
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- HERO MEJORADO -->
+    <!-- HERO -->
     <section class="hero" id="inicio">
         <div class="container"><div class="hero-content">
             <div class="hero-badge"><span style="width:8px;height:8px;background:#4caf50;border-radius:50%;display:inline-block;margin-right:8px;"></span> Taller Mecánico Especializado</div>
             <h1 class="hero-title">Tu auto,<br>en las <span class="highlight">mejores manos</span></h1>
-            <p class="hero-description">Mecánica integral, lubricentro y reprogramación electrónica. En Rosconi Garage tu vehículo recibe atención experta y garantía escrita.</p>
+            <p class="hero-description">Mecánica general, integral, service completo y lubricentro. En Rosconi Garage tu vehículo recibe atención experta y garantía escrita.</p>
             <div class="hero-buttons">
                 <a href="#agenda" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agenda Tu Turno</a>
                 <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a>
@@ -301,7 +303,7 @@
         </div></div>
     </section>
 
-    <!-- ABOUT CON CARRUSEL Y DOTS -->
+    <!-- ABOUT CON CARRUSEL -->
     <section class="section-padding" id="nosotros">
         <div class="container"><div class="about-grid">
             <div class="carousel-container">
@@ -315,36 +317,66 @@
                 <h2 class="section-title">Tu taller de <span class="text-accent">confianza</span></h2>
                 <p class="section-subtitle">En Rosconi Garage combinamos experiencia, pasión y tecnología para ofrecerte un servicio de mecánica automotriz integral. Trabajamos con repuestos de primeras marcas y garantizamos todos nuestros trabajos.</p>
                 <div class="about-features">
-                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-microchip"></i></div>Reprogramación Electrónica</div>
-                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div>Garantía Escrita</div>
-                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-oil-can"></i></div>Lubricentro</div>
+                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-cogs"></i></div>Mecánica General</div>
                     <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-tools"></i></div>Mecánica Integral</div>
+                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-oil-can"></i></div>Service Completo</div>
+                    <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-microchip"></i></div>Reprogramación</div>
                 </div>
             </div>
         </div></div>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS REORDENADOS -->
     <section class="section-padding" id="servicios" style="background:#111;">
         <div class="container">
             <div class="text-center"><span class="section-tag">Nuestros Servicios</span><h2 class="section-title">Todo para tu <span class="text-accent">vehículo</span></h2></div>
             <div class="services-grid">
-                <div class="service-card"><div class="service-icon"><i class="fas fa-cogs"></i></div><h3 class="service-title">Mecánica Integral</h3><p>Reparación de motores, cajas, embragues, suspensión y frenos.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-oil-can"></i></div><h3 class="service-title">Lubricentro</h3><p>Cambio de aceite, filtros y lubricación con productos Mobil y LiquiMoly.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-microchip"></i></div><h3 class="service-title">Reprogramación Electrónica</h3><p>Optimización de centralitas, mejora de potencia y eficiencia.</p></div>
-                <div class="service-card"><div class="service-icon"><i class="fas fa-screwdriver-wrench"></i></div><h3 class="service-title">Mecánica General</h3><p>Reparaciones y mantenimiento con repuestos Mann Filter, Blue Chem y Eibach.</p></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3 class="service-title">Mecánica General</h3>
+                    <p class="service-description">Reparación y mantenimiento general del vehículo. Freno, suspensión, dirección, tren delantero y más. Repuestos de primeras marcas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3 class="service-title">Mecánica Integral</h3>
+                    <p class="service-description">Atención completa del motor, caja de cambios, embrague y sistema eléctrico. Diagnóstico preciso y soluciones duraderas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-oil-can"></i></div>
+                    <h3 class="service-title">Service Completo / Lubricentro</h3>
+                    <p class="service-description">Cambio de aceite, filtros, lubricación y mantenimiento preventivo. Trabajamos con Mobil, LiquiMoly y Mann Filter.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3 class="service-title">Reprogramación Electrónica</h3>
+                    <p class="service-description">Optimización de centralitas, mejora de potencia y eficiencia. Servicio especializado con equipos de última generación.</p>
+                </div>
             </div>
             <p style="text-align:center; margin-top:30px; color:var(--text-muted);"><i class="fas fa-shield-alt"></i> Todos nuestros servicios cuentan con garantía escrita.</p>
         </div>
     </section>
 
-    <!-- GALERÍA (se mantienen las 17 imágenes) -->
+    <!-- GALERÍA -->
     <section class="section-padding" id="galeria">
         <div class="container"><div class="text-center"><span class="section-tag">Nuestros Trabajos</span><h2 class="section-title">Galería de <span class="text-accent">Proyectos</span></h2></div>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="https://i.imgur.com/ISqCp2p.jpg" alt="Motor en reparación" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Motor</span><h4>Reparación</h4></div></div>
             <div class="gallery-item"><img src="https://i.imgur.com/ZRL3vMu.jpg" alt="Taller" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Taller</span><h4>Instalaciones</h4></div></div>
-            <!-- ... (se repiten todas las demás igual) -->
+            <div class="gallery-item"><img src="https://i.imgur.com/Mq3IuMP.jpg" alt="Lubricentro" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Lubricentro</span><h4>Cambio de aceite</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/UVSJ5OP.jpg" alt="Reprogramación" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Electrónica</span><h4>Reprogramación</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/IBBcbDB.jpg" alt="Mecánica" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Mecánica</span><h4>Motor</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/taE21Py.jpg" alt="Suspensión" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Suspensión</span><h4>Reparación</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/Lc5n3Di.jpg" alt="Frenos" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Frenos</span><h4>Mantenimiento</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/d0QhDUQ.jpg" alt="Climatización" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Climatización</span><h4>Aire acondicionado</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/pamUkvs.jpg" alt="Diagnóstico" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Diagnóstico</span><h4>Scanner</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/DnnEThy.jpg" alt="Repuestos" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Repuestos</span><h4>Marcas</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/dOHdVxu.jpg" alt="Mecánica" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Mecánica</span><h4>Trabajo en progreso</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/2tqA8lV.jpg" alt="Lubricentro" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Lubricentro</span><h4>Productos</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/UHKefj6.jpg" alt="Electrónica" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Electrónica</span><h4>Centralita</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/RuUr1cl.jpg" alt="Motor" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Mecánica</span><h4>Motor</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/nMrcLj2.jpg" alt="Taller" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Taller</span><h4>Box</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/rzxRJ2N.jpg" alt="Clásico" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Clásico</span><h4>Restauración</h4></div></div>
+            <div class="gallery-item"><img src="https://i.imgur.com/elCxcqr.jpg" alt="Mann Filter" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Repuestos</span><h4>Mann Filter</h4></div></div>
         </div></div>
     </section>
 
@@ -360,7 +392,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group"><label class="form-label" for="vehiculo">Vehículo</label><input type="text" id="vehiculo" class="form-input" required></div>
-                        <div class="form-group"><label class="form-label" for="servicio">Servicio</label><select id="servicio" class="form-input" required><option value="">Seleccionar...</option><option>Mecánica Integral</option><option>Lubricentro</option><option>Reprogramación Electrónica</option><option>Mecánica General</option><option>Otro</option></select></div>
+                        <div class="form-group"><label class="form-label" for="servicio">Servicio</label><select id="servicio" class="form-input" required><option value="">Seleccionar...</option><option>Mecánica General</option><option>Mecánica Integral</option><option>Service Completo / Lubricentro</option><option>Reprogramación Electrónica</option><option>Otro</option></select></div>
                     </div>
                     <div class="form-group"><label class="form-label" for="fecha">Fecha Preferida</label><input type="date" id="fecha" class="form-input" required></div>
                     <div class="form-group"><label class="form-label" for="mensaje">Descripción (opcional)</label><textarea id="mensaje" class="form-input form-textarea"></textarea></div>
@@ -403,16 +435,56 @@
         <div class="container"><div class="footer-grid">
             <div><div class="footer-brand">Rosconi<span>Garage</span></div><p style="color:#707070;">Taller mecánico automotriz. Trabajo serio, resultados de confianza.</p></div>
             <div><h4 style="font-family:var(--font-display);">Navegación</h4><ul class="footer-links"><li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Trabajos</a></li><li><a href="#agenda">Agenda</a></li></ul></div>
-            <div><h4 style="font-family:var(--font-display);">Servicios</h4><ul class="footer-links"><li><a href="#servicios">Mecánica Integral</a></li><li><a href="#servicios">Lubricentro</a></li><li><a href="#servicios">Reprogramación</a></li><li><a href="#servicios">Mecánica General</a></li></ul></div>
+            <div><h4 style="font-family:var(--font-display);">Servicios</h4><ul class="footer-links"><li><a href="#servicios">Mecánica General</a></li><li><a href="#servicios">Mecánica Integral</a></li><li><a href="#servicios">Service Completo</a></li><li><a href="#servicios">Reprogramación</a></li></ul></div>
             <div><h4 style="font-family:var(--font-display);">Contacto</h4><ul class="footer-links"><li><a href="mailto:martinrosca12@gmail.com">martinrosca12@gmail.com</a></li><li><a href="https://maps.google.com/?q=Juan+Antonio+Lavalleja+730,+Artigas,+Uruguay" target="_blank">Lavalleja 730, Artigas</a></li><li><a href="https://wa.me/59891317613" target="_blank">WhatsApp</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2024 Rosconi Garage. Todos los derechos reservados.</p><p>Hecho con <span style="color:var(--accent);">♥</span> y pasión por los motores</p></div></div>
     </footer>
 
-    <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <!-- BOTONES FLOTANTES -->
+    <a href="https://wa.me/59891317613?text=Hola%20Rosconi%2C%20Quiero%20hacer%20una%20consulta." target="_blank" class="floating-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=-30.4066293,-56.4605533" target="_blank" class="floating-map" aria-label="Cómo llegar"><i class="fas fa-map-marker-alt"></i></a>
 
     <script>
-        // CARRUSEL ABOUT (con dots)
+        // Sonido sutil de click
+        function playClickSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                oscillator.start(audioCtx.currentTime);
+                oscillator.stop(audioCtx.currentTime + 0.15);
+            } catch (e) {
+                // Silencioso si no soporta
+            }
+        }
+
+        // Asignar sonido a todos los botones con clase .btn y flotantes
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn, .floating-whatsapp, .floating-map');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', playClickSound);
+            });
+
+            // Ocultar intro al hacer clic
+            const intro = document.getElementById('intro');
+            intro.addEventListener('click', function() {
+                intro.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Bloquear scroll al cargar
+            document.body.style.overflow = 'hidden';
+        });
+
+        // CARRUSEL ABOUT
         const images = [
             'https://i.imgur.com/ZRL3vMu.jpg',
             'https://i.imgur.com/Mq3IuMP.jpg',
@@ -473,7 +545,7 @@
         generateDots();
         updateCarousel();
 
-        // NAVBAR SCROLL
+        // NAVBAR
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
